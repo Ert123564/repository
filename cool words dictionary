@@ -7,8 +7,10 @@ meme_dict = {
             "АГРИТЬСЯ":"злиться",
             }
 while True:
-    word = input("Введите непонятное слово (большими буквами!): ")
+    word = input("Введите непонятное слово или стоп для отсановки (большими буквами!): ")
     if word in meme_dict.keys():
         print(meme_dict[word])
+    elif word == "СТОП":
+        break 
     else:
         print("извините но тот кто сказал это явно не человек")
