@@ -1,0 +1,18 @@
+import telebot
+import os
+
+# Замени 'TOKEN' на токен твоего бота
+# Этот токен ты получаешь от BotFather, чтобы бот мог работать
+bot = telebot.TeleBot("8104511383:AAFunltQN35ex2TiT66svaAvbtSHtvf3X5w")
+
+@bot.message_handler(commands=['mem'])
+def send_mem(message):
+    with open(f'images/mem.jpeg', 'rb') as f:  
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=['animals'])
+def send_mem(message):
+    with open(f'images/mem.jpeg', 'rb') as f:  
+        bot.send_photo(message.chat.id, f)
+
+bot.polling()
