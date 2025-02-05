@@ -1,0 +1,25 @@
+import telebot
+import random
+import os
+
+bot = telebot.TeleBot("8104511383:AAFunltQN35ex2TiT66svaAvbtSHtvf3X5w")
+
+@bot.message_handler(commands=['start', 'hello'])
+def send_welcome(message):
+    bot.reply_to(message, f'Привет! Я бот {bot.get_me().first_name}!')
+
+@bot.message_handler(commands=['ecotip'])
+def send_bye(message):
+    eco = random.randint(1,3)
+    if eco == 1:
+        bot.reply_to(message, "Обычный совет - не выкидывай фанткики на улицу")
+    elif eco == 2:
+        bot.reply_to(message, "обычный совет - не трать электричество, воду и подобные ресурсы. их мало на планете и еще будут злые родители.")
+    elif eco == 3:
+        eco2 = random.randint(1,2)
+        if eco2 == 1:
+            bot.reply_to(message, "обычный совет - не выкидывай электронику и другие ценные если они сломались, лучшеп отдать их в ремонт")
+        elif eco2 == 2:
+            bot.reply_to(message, "Вау, редкий совет - если у тебя в городе стоят мусорки для сортировки то следуй им")
+
+bot.polling()
